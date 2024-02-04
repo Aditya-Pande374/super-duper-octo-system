@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfaaz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="player-card">
+        <div class="player">
+
+            <!-- Components-1 -->
+            <div class="components-1">
+
+                <div class="comp-left">
+                    <div class="playing track-number">Playing Song x of y</div>
+                    <div class="pulse-stop"><div class="track-pic rotation-stop"></div></div>
+                    <div class="track-name">Track Name </div>
+                    <div class="track-artist" style="margin-top: 10px;">Track Artist</div>
+                </div>
+            </div>
+
+            <!-- Components-2 -->
+            <div class="components-2">
+                
+                <div class="music-slider">
+                    <div class="curr-time">00:00</div>
+                    <input type="range" value="50" min="1" max="100" title="tracker">
+                    <div class="total-time">00:00</div>
+                </div>
+
+                <div class="buttons">
+                    <div class="prev-track press" onclick="playPrev()">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </div>
+                    <div class="play-pause press" onclick="playStop()">
+                        <audio src="#" class="groove"></audio>
+                        <i class="fa-solid fa-play play-pause-i"></i>
+                    </div>
+                    <div class="next-track press">
+                        <i class="fa-solid fa-forward-step" onclick="playNext()"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Components-3 -->
+            <div class="components-3">
+                <div class="shuffle press">
+                    <i class="fa-solid fa-shuffle"></i>
+                </div>
+                <div class="repeat-track press">
+                    <i class="fa-solid fa-repeat"></i>
+                </div>
+            </div>            
+
+        </div>
+
+        <!-- Volume -->
+        <div class="comp-right">
+            <div class="volume-slider">
+                <i class="fa-solid fa-volume-high top-i"></i>
+                <input type="range" min="0" max="100" title="volume" orient="vertical" class="volume-change">
+                <i class="fa-solid fa-volume-low top-l"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/031ed58609.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

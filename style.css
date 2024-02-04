@@ -1,0 +1,202 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;	
+    background: #c7b198; 
+}
+
+.player-card{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    /* border: 2px solid red; */
+}
+
+.player{
+    background: #dfd3c3; 
+    /* border: 2px solid red; */
+    margin-right: 20px;
+    box-shadow: 1px 15px 6px 0px rgba(8, 11, 11, 0.2);
+    border-radius: 5%;
+    padding: 35px;
+    height: 80vh;
+}
+
+/* Components-1 */
+.components-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comp-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.track-pic{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 1px 5px 6px 0px rgba(21, 30, 30, 0.2);
+    /* box-shadow: 1px 5px 6px 0px rgb(140 200 200 / 20%); */
+}
+
+.pulse{
+    animation: pulse 5s infinite;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.pulse-stop{
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    animation: none;
+}
+
+.rotation-stop{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    background-size: cover;
+    animation: none;
+}
+
+@keyframes pulse {
+    0%{
+        box-shadow: 0 0 0 rgb(153, 75, 75);
+    }
+    70%{
+        box-shadow: 0 0 14px rgb(143, 87, 87);
+    }
+    90%{
+        box-shadow: 0 0 10px rgb(187, 204, 232);
+    }
+    100%{
+        box-shadow: 0 0 10px rgb(97, 97, 97);
+    }
+    90%{
+        box-shadow: 0 0 10px rgb(187, 204, 232);
+    }
+    70%{
+        box-shadow: 0 0 14px rgb(143, 87, 87);
+    }
+    0%{
+        box-shadow: 0 0 0 rgb(153, 75, 75);
+    }
+}
+
+.rotation{
+    background: url("../Fallen\ Angel\ 1\ by\ Lilia\ D.jpeg");
+    background-size: cover;
+    animation: rotation 10s infinite linear;
+}
+
+@keyframes rotation {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(359deg);
+    }
+}
+
+/* Components-2 */
+.components-2{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.music-slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.total-time{
+    margin-left: 5px;
+}
+
+.curr-time{
+    margin-right: 5px;
+}
+
+.buttons{
+    padding-top: 5px;
+    margin-left: 15px;
+    /* padding-bottom: 10px; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.play-pause-i{
+    font-size: xx-large;
+}
+
+.press{
+    transition: all 600ms;
+    margin: 5px 10px 30px;
+}
+
+.press:hover{
+    color: rgb(33, 53, 88);
+    cursor: pointer;
+}
+
+/* Components-3 */
+.components-3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Volume-Slider */
+.comp-right{
+    background: #dfd3c3; 
+    /* border: 2px solid red; */
+    padding: 30px;
+}
+.volume-slider{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-i{
+    margin-bottom: 10px;
+}
+
+.top-l{
+    margin-top: 10px;
+}
+
+.top-i, .top-l{
+    cursor: pointer;
+}
+
+input[type="range"]{
+    cursor: pointer;
+}
