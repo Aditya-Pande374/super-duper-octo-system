@@ -17,7 +17,7 @@ const audioTrack=[
         name: 'Fear&Loathing',
         artist: 'Marina',
         src: 'groove/MARINA AND THE DIAMONDS - FEAR & LOATHING _Official Music Video_ _ ♡ ELECTRA HEART PART 1_11 ♡ ( 160kbps ).mp3',
-        image: "https://static.wikia.nocookie.net/marina/images/8/88/Tumblr_lpp8fr8UWN1qf250ao1_500.png/revision/latest/scale-to-width-down/250?cb=20190302204313"
+        image: "https://25.media.tumblr.com/e76e3e6e8770f8445a031c9cd450cdb6/tumblr_mf5lgw9GSm1ric2ifo1_1280.jpg"
 
     },
     {
@@ -162,3 +162,54 @@ volD.addEventListener("click", ()=>{
         soundOn.volume= volumeControl.value/100;
     }
 })
+
+// Added current Timestamps, totaltime and sliderUpdate
+let timeSlider= document.querySelector('#range');
+let repeat= false;
+
+let repeatToggle= document.querySelector('.repeat-track');
+repeatToggle.addEventListener('click', ()=>{
+    repeat= !repeat;
+    //Changes color to blue, if repeat is On
+    let col= document.querySelector('.fa-repeat');
+    if(col.style.color!= "blue"){
+        col.style.color="blue";
+    }else{
+        col.style.color="black";
+    }
+});
+
+soundOn.addEventListener('loadedmetadata', function() {
+    let totalTime = soundOn.duration;
+    document.querySelector('.total-time').innerHTML = formatTime(totalTime);
+    timeSlider.max= totalTime;
+});
+
+soundOn.addEventListener('timeupdate', () => {
+    // Update the current time during playback
+    let currentTime = soundOn.currentTime;
+    document.querySelector('.curr-time').innerHTML = formatTime(currentTime);
+    timeSlider.value= currentTime;
+
+    // When song ends
+    if(Math.abs(soundOn.currentTime - soundOn.duration) < 0.1 && repeat){
+        //Repeats the current song
+        playNow();
+    }else if(Math.abs(soundOn.currentTime - soundOn.duration) < 0.1 && !repeat){
+        //Plays the next song
+        playNext();
+    }
+});
+
+function formatTime(timeInSeconds) {
+    let minutes = Math.floor(timeInSeconds / 60);
+    let seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+//Input Range Slider
+
+timeSlider.addEventListener("input", ()=>{
+    soundOn.currentTime= timeSlider.value;
+    
+});
